@@ -1,0 +1,18 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <ui:ListView focusable="true" binding-path="_targetTransforms" header-title="Целевые трансформы" reorderable="false" show-foldout-header="true" show-add-remove-footer="true" show-bound-collection-size="false" tooltip="Трансформы, которые камера будет удерживать в поле зрения" show-border="true" style="margin-bottom: 5px; margin-right: 5px; margin-left: 5px;" />
+    <ui:FloatField label="Желаемая дистанция          " value="10" tooltip="Отрицательное значение отрисовывает камеру спереди цели" binding-path="_desiredDistance" style="-unity-text-align: upper-left; margin-top: 0; margin-bottom: 5px; margin-left: 5px; margin-right: 5px; justify-content: flex-start; align-items: stretch; align-self: auto; width: auto;" />
+    <ui:Toggle label="Плавно следовать" value="true" binding-path="_smoothFollow" style="-unity-font-style: bold; margin-left: 5px; margin-right: 5px; margin-top: 0; margin-bottom: 5px;" />
+    <ui:Label tabindex="-1" text="Скорость плавности" display-tooltip-when-elided="true" name="SmoothSpeed" style="-unity-text-align: middle-left; flex-direction: row; white-space: nowrap; text-overflow: clip; align-self: stretch; justify-content: flex-end; margin-bottom: 5px; margin-right: 5px; padding-left: 0; padding-right: 0; margin-left: 18px;">
+        <ui:SliderInt picking-mode="Ignore" value="4" high-value="50" show-input-field="true" binding-path="_smoothSpeed" style="justify-content: flex-start; width: 200px; transform-origin: right; align-items: auto; align-self: auto; flex-direction: row; -unity-text-align: upper-right; margin-right: 0; margin-left: 0; margin-top: 0; margin-bottom: 0; min-width: auto; max-width: none; translate: 0 0;" />
+    </ui:Label>
+    <ui:Toggle label="Меш камеры" value="true" binding-path="_showMesh" class="unity-base-field" style="-unity-font-style: bold; margin-left: 5px; margin-right: 5px; margin-top: 0; margin-bottom: 5px;" />
+    <ui:Label tabindex="-1" text="Цвет меша" display-tooltip-when-elided="true" name="MeshColor" style="padding-left: 0; padding-right: 0; margin-bottom: 5px; margin-right: 5px; margin-left: 75px;">
+        <uie:ColorField value="#FFFFFF3F" binding-path="_meshColor" style="transform-origin: right; align-self: flex-end; width: 200px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+    </ui:Label>
+    <ui:Label tabindex="-1" text="Размер меша" display-tooltip-when-elided="true" name="MeshSize" style="padding-left: 0; padding-right: 0; margin-bottom: 5px; margin-right: 5px; margin-left: 60px;">
+        <ui:Slider picking-mode="Ignore" value="0.2" high-value="10" low-value="0" binding-path="_meshSize" show-input-field="true" style="justify-content: flex-start; transform-origin: right; width: 200px; align-items: stretch; flex-direction: row; align-self: flex-end; -unity-text-align: upper-right; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+    </ui:Label>
+    <ui:Label tabindex="-1" text="Реальный угол обзора" display-tooltip-when-elided="true" style="padding-left: 0; padding-right: 0; margin-right: 5px; margin-bottom: 5px; margin-left: 7px;">
+        <ui:Toggle binding-path="_showRealFOV" value="true" style="width: 200px; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0; align-self: flex-end;" />
+    </ui:Label>
+</ui:UXML>

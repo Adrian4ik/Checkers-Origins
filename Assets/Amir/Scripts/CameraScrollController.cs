@@ -29,7 +29,7 @@ public class CameraScrollController : MonoBehaviour, IPointerEnterHandler, IPoin
             while (_arenasScroll.childCount != 0)
                 DestroyImmediate(_arenasScroll.GetChild(0).gameObject);
 
-        _camera.SetPlayerTransform(_arenasScroll);
+        _camera.AddTargetTransform(_arenasScroll);
     }
 
     void Update()

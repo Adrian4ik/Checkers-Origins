@@ -801,6 +801,7 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     Standalone: PWB_URP
+    WebGL: PWB_URP
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
