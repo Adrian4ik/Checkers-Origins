@@ -30,6 +30,7 @@ public class ButtonScript : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
     public static void LoadArena(string arena_name)
     {
+        UIManager.Instance.SetPlayers();
         UIManager.Instance.PlayMenuChoose();
         SceneManager.LoadScene(arena_name);
     }
