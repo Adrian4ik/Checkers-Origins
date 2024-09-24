@@ -193,6 +193,14 @@ public class CheckerController : MonoBehaviour
         }
     }
 
+    public void SetSleep(bool do_sleep)
+    {
+        if (do_sleep)
+            _rigidbody.Sleep();
+        else if(_rigidbody.IsSleeping())
+            _rigidbody.WakeUp();
+    }
+
 
 
     void CheckReadyState()

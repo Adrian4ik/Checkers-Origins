@@ -1,6 +1,9 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using static MarkAnimationController;
 
 public class TurnSystem : MonoBehaviour
 {
@@ -10,6 +13,7 @@ public class TurnSystem : MonoBehaviour
     internal bool _isOnPause { get; private set; } = false;
 
     [SerializeField] GameObject _title;
+    [SerializeField] float _markersGap = 140f;
 
     List<GameObject> _markers = new();
     List<CheckerController> _eliminationQueue = new();
@@ -47,6 +51,8 @@ public class TurnSystem : MonoBehaviour
         {
             _playersQueue.Add(checker);
             _markers.Add(marker);
+
+            marker.SetActive(false);
 
             if (_playersQueue.Count == 4)
                 Invoke(nameof(StartGame), 2.0f);
@@ -121,7 +127,7 @@ public class TurnSystem : MonoBehaviour
         {
             _markers[i].SetActive(true);
             //_markers[i].transform.localPosition = new Vector3(_markers[0].transform.localPosition.x + (i * 140), 540);
-            _markers[i].gameObject.GetComponent<RectTransform>().localPosition = new Vector3(_markers[0].gameObject.GetComponent<RectTransform>().localPosition.x + (i * 140), 200);
+            _markers[i].gameObject.GetComponent<RectTransform>().localPosition = new Vector3(_markers[0].gameObject.GetComponent<RectTransform>().localPosition.x + (i * _markersGap), 200);
         }
     }
 
@@ -209,11 +215,11 @@ public class TurnSystem : MonoBehaviour
         // исчезновение из системы ходов
         foreach (CheckerController player in _eliminationQueue)
         {
-            //_markers[_playersQueue.IndexOf(player)].SetActive(false);
-
             byte player_index = (byte)_playersQueue.IndexOf(player);
 
             _playersQueue.RemoveAt(player_index);
+            
+            _markers[player_index].SetActive(false);
             _markers.RemoveAt(player_index);
         }
 
@@ -242,6 +248,9 @@ public class TurnSystem : MonoBehaviour
 
     void Update()
     {
+        //foreach (CheckerController checker in _playersQueue)
+            //checker.SetSleep(_isOnPause);
+
         if (!_isOnPause && _isReady)
         {
             _playersQueue[_currentPlayer].ChooseAttackVector();

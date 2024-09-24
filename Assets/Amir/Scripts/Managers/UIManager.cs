@@ -43,6 +43,11 @@ public class UIManager : MonoBehaviour
         _currentScreen.SetActive(true);
     }
 
+    public void SetPlayers()
+    {
+        //
+    }
+
     public void PlayMenuChoose()
     {
         audioMenuChoose.Play();

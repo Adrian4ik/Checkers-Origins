@@ -215,7 +215,7 @@ MonoBehaviour:
   _marker: {fileID: 0}
   _layer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   _rigidbody: {fileID: 7839669159761762952}
   _checkerAppearance: {fileID: 9063737983205660703}
 --- !u!114 &9063737983205660703
